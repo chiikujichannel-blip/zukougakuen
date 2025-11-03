@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>ちいくじ図工学園 - 小学生向けオンライン工作教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+      background-color: #f8f5f0;
+      color: #4a3f35;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 2rem;
+      }
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(248, 245, 240, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5ddd0;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #d97745;
+    }
+
+    .nav {
+      display: none;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav {
+        display: flex;
+      }
+    }
+
+    .nav button {
+      background: none;
+      border: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #4a3f35;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .nav button:hover {
+      color: #d97745;
+    }
+
+    .btn {
+      padding: 0.5rem 1.5rem;
+      background-color: #d97745;
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #c26535;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(217, 119, 69, 0.3);
+    }
+
+    .btn-lg {
+      padding: 1rem 2rem;
+      font-size: 1.125rem;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid #d97745;
+      color: #d97745;
+    }
+
+    .btn-outline:hover {
+      background-color: #d97745;
+      color: white;
+    }
+
+    .btn-header {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .btn-header {
+        display: inline-flex;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 5rem 0;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 8rem 0;
+      }
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(217, 119, 69, 0.1), rgba(112, 179, 153, 0.05), #f8f5f0);
+    }
+
+    .hero-content {
+      position: relative;
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: rgba(217, 119, 69, 0.1);
+      color: #d97745;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      h1 {
+        font-size: 3.75rem;
+      }
+    }
+
+    .text-primary {
+      color: #d97745;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      color: #6b5f52;
+      text-align: left;
+    }
+
+    @media (min-width: 768px) {
+      .hero-description {
+        font-size: 1.25rem;
+      }
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero-buttons {
+        flex-direction: row;
+      }
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding-top: 1rem;
+    }
+
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .hero-image-glow {
+      position: absolute;
+      inset: -1rem;
+      background: linear-gradient(to right, rgba(217, 119, 69, 0.2), rgba(112, 179, 153, 0.2));
+      border-radius: 1.5rem;
+      filter: blur(40px);
+    }
+
+    .hero-image {
+      position: relative;
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 0;
+    }
+
+    .bg-card {
+      background-color: white;
+    }
+
+    h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      h2 {
+        font-size: 2.25rem;
+      }
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: #6b5f52;
+      max-width: 42rem;
+      margin-bottom: 4rem;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: white;
+      border: 2px solid #e5ddd0;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .card:hover {
+      border-color: #d97745;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    .icon-primary {
+      background-color: rgba(217, 119, 69, 0.1);
+      color: #d97745;
+    }
+
+    .icon-accent {
+      background-color: rgba(112, 179, 153, 0.1);
+      color: #70b399;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: #6b5f52;
+    }
+
+    /* Content Section */
+    .content-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .content-image {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .content-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .feature-item-content {
+      flex: 1;
+    }
+
+    .feature-item-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-item-description {
+      color: #6b5f52;
+      font-size: 0.875rem;
+    }
+
+    /* Pricing Section */
+    .pricing-bg {
+      background: linear-gradient(to bottom, #f8f5f0, rgba(217, 119, 69, 0.05));
+    }
+
+    .pricing-card {
+      max-width: 32rem;
+      margin: 0 auto;
+      background: white;
+      border: 2px solid #d97745;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .pricing-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pricing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: rgba(217, 119, 69, 0.1);
+      color: #d97745;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin: 0 auto 1rem;
+    }
+
+    .pricing-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-subtitle {
+      color: #6b5f52;
+    }
+
+    .pricing-price {
+      padding: 1.5rem 0;
+    }
+
+    .price-amount {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #d97745;
+    }
+
+    .price-note {
+      font-size: 0.875rem;
+      color: #6b5f52;
+      margin-top: 0.5rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: left;
+    }
+
+    .pricing-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      background: white;
+      border: 1px solid #e5ddd0;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-answer {
+      color: #6b5f52;
+    }
+
+    /* CTA Section */
+    .cta-bg {
+      background: linear-gradient(135deg, rgba(217, 119, 69, 0.1), rgba(112, 179, 153, 0.05), #f8f5f0);
+    }
+
+    .cta-card {
+      max-width: 48rem;
+      margin: 0 auto;
+      background: white;
+      border: 2px solid #d97745;
+      border-radius: 0.75rem;
+      padding: 3rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .cta-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .cta-description {
+      font-size: 1.125rem;
+      color: #6b5f52;
+      max-width: 36rem;
+    }
+
+    .cta-button-wrapper {
+      padding-top: 1rem;
+    }
+
+    .cta-note {
+      font-size: 0.875rem;
+      color: #6b5f52;
+      text-align: left;
+    }
+
+    /* Footer */
+    footer {
+      background-color: white;
+      border-top: 1px solid #e5ddd0;
+      padding: 3rem 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: #d97745;
+      margin-bottom: 1rem;
+    }
+
+    .footer-description {
+      font-size: 0.875rem;
+      color: #6b5f52;
+    }
+
+    .footer-title {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-link {
+      background: none;
+      border: none;
+      font-size: 0.875rem;
+      color: #6b5f52;
+      cursor: pointer;
+      text-align: left;
+      transition: color 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #d97745;
+    }
+
+    .footer-copyright {
+      border-top: 1px solid #e5ddd0;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #6b5f52;
+    }
+
+    /* Icons */
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .icon-lg {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .check-icon {
+      color: #70b399;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"/>
+          </svg>
+          <span>ちいくじ図工学園</span>
+        </div>
+        <nav class="nav">
+          <button onclick="scrollToSection('features')">講座の特徴</button>
+          <button onclick="scrollToSection('content')">講座内容</button>
+          <button onclick="scrollToSection('pricing')">料金</button>
+          <button onclick="scrollToSection('faq')">よくある質問</button>
+        </nav>
+        <button class="btn btn-header" onclick="scrollToSection('cta')">お申し込み</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="badge">
+            <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            小学生向けオンライン工作教室
+          </div>
+          <h1>
+            創造力を育む<br>
+            <span class="text-primary">楽しい工作体験</span>
+          </h1>
+          <p class="hero-description">
+            ちいくじと一緒に、お子さまの「つくる喜び」を引き出します。隔週のZoom講座で、親子で楽しく学べる工作コミュニティに参加しませんか?
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-lg" onclick="scrollToSection('cta')">今すぐ始める</button>
+            <button class="btn btn-lg btn-outline" onclick="scrollToSection('content')">詳しく見る</button>
+          </div>
+          <div class="hero-features">
+            <div class="hero-feature">
+              <svg class="icon check-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>買い切り型</span>
+            </div>
+            <div class="hero-feature">
+              <svg class="icon check-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>質問無制限</span>
+            </div>
+            <div class="hero-feature">
+              <svg class="icon check-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>親子参加OK</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <div class="hero-image-glow"></div>
+          <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&h=600&fit=crop" alt="子どもたちが楽しく工作をしている様子" class="hero-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="bg-card">
+    <div class="container">
+      <div>
+        <h2>講座の<span class="text-primary">3つの特徴</span></h2>
+        <p class="section-description">お子さまの成長を支える、充実したサポート体制をご用意しています</p>
+      </div>
+      <div class="features-grid">
+        <div class="card">
+          <div class="card-icon icon-primary">
+            <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3>隔週Zoom講座</h3>
+          <p>ちいくじが直接指導する隔週のオンライン工作講座。リアルタイムで質問でき、お子さまのペースに合わせて進められます。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-accent">
+            <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+          </div>
+          <h3>質問無制限サポート</h3>
+          <p>チャットでいつでも質問OK。工作中の疑問や困りごとを、ちいくじが丁寧にサポートします。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-primary">
+            <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3>親子コミュニティ</h3>
+          <p>同じ目標を持つ親子が集まるコミュニティ。作品の共有や情報交換を通じて、学びがさらに深まります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section id="content">
+    <div class="container">
+      <div class="content-grid">
+        <div style="order: 2;">
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=600&fit=crop" alt="様々な工作作品" class="content-image">
+        </div>
+        <div style="order: 1;" class="content-text">
+          <h2>どんな<span class="text-primary">工作</span>を<br>学べるの?</h2>
+          <p style="color: #6b5f52; font-size: 1.125rem;">季節に合わせた工作から、身近な材料で作れる創作活動まで、幅広いテーマをご用意。お子さまの興味や発達段階に応じて、楽しみながら創造力を育みます。</p>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="icon check-icon" style="flex-shrink: 0; margin-top: 0.125rem;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <div class="feature-item-content">
+                <div class="feature-item-title">季節の工作</div>
+                <div class="feature-item-description">四季折々のイベントに合わせた作品づくり</div>
+              </div>
+            </li>
+            <li class="feature-item">
+              <svg class="icon check-icon" style="flex-shrink: 0; margin-top: 0.125rem;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <div class="feature-item-content">
+                <div class="feature-item-title">リサイクル工作</div>
+                <div class="feature-item-description">身近な材料を活用した環境にやさしい創作</div>
+              </div>
+            </li>
+            <li class="feature-item">
+              <svg class="icon check-icon" style="flex-shrink: 0; margin-top: 0.125rem;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <div class="feature-item-content">
+                <div class="feature-item-title">自由創作</div>
+                <div class="feature-item-description">お子さまの想像力を最大限に引き出すテーマ</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-bg">
+    <div class="container">
+      <div>
+        <h2>シンプルな<span class="text-primary">料金プラン</span></h2>
+        <p class="section-description">一度のお支払いで、ずっと学び続けられる安心の買い切り型</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-content">
+          <div>
+            <div class="pricing-badge">
+              <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+              </svg>
+              おすすめ
+            </div>
+            <div class="pricing-title">ちいくじ図工学園</div>
+            <div class="pricing-subtitle">永続アクセス・買い切り型</div>
+          </div>
+          <div class="pricing-price">
+            <div>
+              <span class="price-amount">¥29,800</span>
+              <span style="color: #6b5f52;">（税込）</span>
+            </div>
+            <div class="price-note">一度のお支払いでずっと在籍可能</div>
+          </div>
+          <ul class="pricing-features">
+            <li class="pricing-feature">
+              <svg class="icon check-icon" style="flex-shrink: 0;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>隔週のZoomオンライン講座</span>
+            </li>
+            <li class="pricing-feature">
+              <svg class="icon check-icon" style="flex-shrink: 0;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>チャットでの質問無制限</span>
+            </li>
+            <li class="pricing-feature">
+              <svg class="icon check-icon" style="flex-shrink: 0;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>親子参加コミュニティへのアクセス</span>
+            </li>
+            <li class="pricing-feature">
+              <svg class="icon check-icon" style="flex-shrink: 0;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>過去の講座アーカイブ視聴</span>
+            </li>
+            <li class="pricing-feature">
+              <svg class="icon check-icon" style="flex-shrink: 0;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>工作アイデア集へのアクセス</span>
+            </li>
+          </ul>
+          <button class="btn btn-lg" style="width: 100%;" onclick="scrollToSection('cta')">今すぐ申し込む</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="bg-card">
+    <div class="container">
+      <div class="faq-container">
+        <div>
+          <h2>よくある<span class="text-primary">質問</span></h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">対象年齢は何歳ですか?</div>
+            <div class="faq-answer">小学1年生から6年生までを対象としています。お子さまの発達段階に合わせて、適切な工作テーマをご提案します。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">必要な材料は自分で用意するのですか?</div>
+            <div class="faq-answer">はい。講座の前に必要な材料リストをお知らせしますので、ご家庭でご用意いただきます。身近な材料や100円ショップで手に入るものを中心に使用します。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">親も一緒に参加する必要がありますか?</div>
+            <div class="faq-answer">低学年のお子さまは保護者の方のサポートをお願いしています。高学年のお子さまは一人でも参加できますが、親子で一緒に楽しんでいただくことをおすすめします。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">途中で退会することはできますか?</div>
+            <div class="faq-answer">買い切り型のため、退会の概念はございません。一度お支払いいただければ、お好きなタイミングで講座に参加し続けることができます。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Zoomの使い方がわからないのですが...</div>
+            <div class="faq-answer">ご安心ください。お申し込み後に、Zoomの使い方ガイドをお送りします。また、初回参加前に接続テストも行えますので、お気軽にご相談ください。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="cta" class="cta-bg">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>今すぐ<span class="text-primary">始めましょう</span></h2>
+          <p class="cta-description">
+            お子さまの創造力を育む第一歩を、今日から踏み出しませんか?<br>
+            ちいくじと一緒に、楽しい工作の世界へ。
+          </p>
+          <div class="cta-button-wrapper">
+            <button class="btn btn-lg" style="padding: 1.5rem 3rem;">お申し込みはこちら</button>
+          </div>
+          <p class="cta-note">※お申し込み方法の詳細は、ボタンをクリック後にご案内します</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"/>
+            </svg>
+            <span>ちいくじ図工学園</span>
+          </div>
+          <p class="footer-description">小学生向けオンライン工作教室。創造力を育む楽しい学びの場を提供します。</p>
+        </div>
+        <div>
+          <div class="footer-title">講座について</div>
+          <ul class="footer-links">
+            <li><button class="footer-link" onclick="scrollToSection('features')">講座の特徴</button></li>
+            <li><button class="footer-link" onclick="scrollToSection('content')">講座内容</button></li>
+            <li><button class="footer-link" onclick="scrollToSection('pricing')">料金プラン</button></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">サポート</div>
+          <ul class="footer-links">
+            <li><button class="footer-link" onclick="scrollToSection('faq')">よくある質問</button></li>
+            <li><button class="footer-link" onclick="scrollToSection('cta')">お問い合わせ</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2025 ちいくじ図工学園. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
